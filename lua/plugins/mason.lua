@@ -21,6 +21,7 @@ return {
         'stylua',
         'lua-language-server',
         'rust-analyzer',
+        'prettierd',
       },
     }
   end,
