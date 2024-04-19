@@ -1,6 +1,6 @@
 -- 插件用于快速创建项目，快速复制行，快速查找项目
 -- 使用方法：
--- 1. 使用 <leader>d 查找项目
+-- 1. 使用 <leader>j 查找项目
 -- 2. 使用 <leader>h 查看历史项目
 -- 3. 使用 <S-A-Up> 复制当前行到上一行
 -- 4. 使用 <S-A-Down> 复制当前行到下一行
@@ -37,14 +37,14 @@ return {
       {
         description = 'Selection: duplicate down',
         mode = { 'v' },
-        '<S-A-Down>',
+        '<S-A-D>',
         '<CMD>VisualDuplicate +1<CR>',
       },
       -- project
       {
         description = 'find a project based on patterns',
         mode = { 'n' },
-        '<leader>d',
+        '<leader>j',
         '<CMD>Telescope neovim-project discover<CR>',
       },
       {

@@ -7,7 +7,6 @@ return {
     require('conform').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
-        markdown = { 'prettierd' },
         verilog = { 'verible' },
         systemverilog = { 'verible' },
         c = { 'clang-format' },
@@ -16,7 +15,7 @@ return {
       },
 
       format_on_save = {
-        pattern = '*.lua,*.md,*.v,*.sv,*.c,*.cpp,*.go',
+        pattern = '*.lua,*.v,*.sv,*.c,*.cpp,*.go,*.h,*.hpp',
         timeout_ms = 500,
         async = false,
         lsp_fallback = true,

@@ -14,8 +14,11 @@ return {
           'lua',
           'vim',
           'rust',
-          'markdown',
-          'markdown_inline',
+          'python',
+          'c',
+          'cpp',
+          'go',
+          'verilog',
         },
 
         sync_install = false,

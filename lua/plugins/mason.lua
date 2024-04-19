@@ -21,7 +21,6 @@ return {
         'stylua',
         'lua-language-server',
         'rust-analyzer',
-        'prettierd',
         'clangd',
         'gopls',
         'verible',
