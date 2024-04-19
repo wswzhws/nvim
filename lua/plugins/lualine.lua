@@ -1,3 +1,4 @@
+-- 插件用于在状态栏显示当前模式、文件名、诊断信息、文件类型等信息
 return {
   'nvim-lualine/lualine.nvim',
   config = function()

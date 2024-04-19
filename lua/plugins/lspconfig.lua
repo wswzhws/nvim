@@ -3,14 +3,6 @@ return {
   config = function()
     local lspconfig = require 'lspconfig'
 
-    -- graphql
-    lspconfig.graphql.setup {
-      filetypes = {
-        'graphql',
-        'gql',
-      },
-    }
-
     -- lua
     lspconfig.lua_ls.setup {
       settings = {
@@ -21,6 +13,12 @@ return {
         },
       },
     }
+
+    -- c/cpp
+    lspconfig.clangd.setup {}
+
+    -- golang
+    lspconfig.gopls.setup {}
 
     -- prisma
     lspconfig.prismals.setup {}

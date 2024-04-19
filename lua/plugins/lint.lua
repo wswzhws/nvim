@@ -1,3 +1,4 @@
+-- 插件用于代码检查
 return {
   'mfussenegger/nvim-lint',
   config = function()

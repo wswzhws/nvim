@@ -1,3 +1,4 @@
+-- 更好的项目管理
 return {
   'coffebar/neovim-project',
   opts = {

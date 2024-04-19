@@ -1,3 +1,12 @@
+-- 插件用于提供更好的 LSP 体验
+-- 1. 使用 <space>ca 查看代码建议
+-- 2. 使用 <space>r 重命名变量
+-- 3. 使用 gd 跳转到定义
+-- 4. 使用 gr 查看引用
+-- 5. 使用 <space>k 查看文档
+-- 6. 使用 [d 跳转到上一个错误
+-- 7. 使用 ]d 跳转到下一个错误
+-- 8. 使用 <leader>o 查看大纲
 return {
   'nvimdev/lspsaga.nvim',
   config = function()

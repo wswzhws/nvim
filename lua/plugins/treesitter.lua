@@ -1,3 +1,4 @@
+-- 插件用于代码高亮和自动补全
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -10,29 +11,18 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup {
         ensure_installed = {
-          'tsx',
           'lua',
           'vim',
-          'typescript',
-          'javascript',
-          'html',
-          'css',
-          'json',
-          'graphql',
-          'regex',
           'rust',
-          'prisma',
           'markdown',
           'markdown_inline',
         },
 
         sync_install = false,
-
         auto_install = true,
 
         highlight = {
           enable = true,
-
           additional_vim_regex_highlighting = false,
         },
         autotag = {

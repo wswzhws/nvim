@@ -1,3 +1,10 @@
+-- 插件用于代码折叠
+-- 使用方法：
+-- 1. zR 打开所有折叠
+-- 2. zM 关闭所有折叠
+-- 3. zr 打开除了当前折叠的所有折叠
+-- 4. zm 关闭当前折叠
+-- 5. zk 查看当前折叠的内容
 return {
   'kevinhwang91/nvim-ufo',
   dependencies = 'kevinhwang91/promise-async',

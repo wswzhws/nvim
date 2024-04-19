@@ -1,3 +1,16 @@
+-- TODO Comment plugin configurations
+-- Usage:
+--  - `]t` to jump to the next todo comment
+--  - `[t` to jump to the previous todo comment
+--  - `<leader>t` to open the todo comments in TodoTelescope
+--  - `:TodoTelescope` to open the todo comments in TodoTelescope
+--  TODO: Add more configurations
+--  FIXME: Add more configurations
+--  HACK: Add more configurations
+--  WARN: Add more configurations
+--  NOTE: Add more configurations
+--  OPTIMIZE: Add more configurations
+--  TEST: Add more configurations
 return {
   'folke/todo-comments.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
