@@ -14,13 +14,9 @@ return {
       },
     }
 
-    -- c/cpp
     lspconfig.clangd.setup {}
-
-    -- golang
     lspconfig.gopls.setup {}
-
-    -- prisma
-    lspconfig.prismals.setup {}
+    lspconfig.rust_analyzer.setup {}
+    lspconfig.verible.setup {}
   end,
 }
