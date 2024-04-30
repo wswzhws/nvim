@@ -17,6 +17,7 @@ return {
           'python',
           'c',
           'cpp',
+          'cuda',
           'go',
           'verilog',
         },
