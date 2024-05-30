@@ -1,5 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
+  'slint-ui/vim-slint',
   config = function()
     local lspconfig = require 'lspconfig'
 
