@@ -14,7 +14,9 @@ return {
         mappings = {
           i = {
             ['esc'] = actions.close,
-            ['jk'] = actions.close,
+          },
+          n = {
+            ['q'] = actions.close,
           },
         },
         file_ignore_patterns = {

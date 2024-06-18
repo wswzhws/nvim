@@ -1,6 +1,4 @@
 -- 插件用于设置快捷键映射，快速查找项目
--- 1. 使用 <leader>j 查找项目
--- 2. 使用 <leader>h 查看历史项目
 return {
   'mrjones2014/legendary.nvim',
   dependencies = {
