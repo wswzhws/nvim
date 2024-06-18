@@ -20,7 +20,6 @@ return {
           'cuda',
           'go',
           'verilog',
-          'slint',
         },
 
         sync_install = false,

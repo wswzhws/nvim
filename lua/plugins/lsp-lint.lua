@@ -9,8 +9,8 @@ return {
       -- brew install llvm
       go = { 'golangcilint' },
       -- go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-      -- verilog = { 'verible' },
-      -- systemverilog = { 'verible' },
+      verilog = { 'verible' },
+      systemverilog = { 'verible' },
     }
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
       callback = function()

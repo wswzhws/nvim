@@ -3,8 +3,8 @@ return {
   'coffebar/neovim-project',
   opts = {
     projects = { -- define project roots
-      '~/Documents/CodeBox/*',
       '~/.config/*',
+      '~/Documents/CodeBox/*',
     },
   },
   init = function()

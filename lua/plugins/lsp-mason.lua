@@ -24,7 +24,6 @@ return {
         'clangd',
         'gopls',
         'verible',
-        'slint-lsp',
       },
     }
   end,

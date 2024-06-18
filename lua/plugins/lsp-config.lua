@@ -17,8 +17,7 @@ return {
 
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
-    lspconfig.rust_analyzer.setup {}
     lspconfig.verible.setup {}
-    lspconfig.slint_lsp.setup {}
+    lspconfig.rust_analyzer.setup {}
   end,
 }

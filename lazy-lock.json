@@ -13,7 +13,7 @@
   "everforest": { "branch": "master", "commit": "4d67edd8d4701b00cee37073d53053a650264541" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "git-blame.nvim": { "branch": "master", "commit": "ad1d1365c9189d89797fe8d559677d5f55dc2830" },
-  "lazy.nvim": { "branch": "main", "commit": "3f13f080434ac942b150679223d54f5ca91e0d52" },
+  "lazy.nvim": { "branch": "main", "commit": "c501b429cf995c645454539b924aaefae45bb9eb" },
   "legendary.nvim": { "branch": "master", "commit": "32bf1bffdce716c14a16e765b049999c28e29422" },
   "lspkind.nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },
   "lspsaga.nvim": { "branch": "main", "commit": "052234296f13e2705d5d290c7bd5a36d3dd81fde" },
