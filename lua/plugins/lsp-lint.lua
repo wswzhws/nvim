@@ -3,10 +3,12 @@ return {
   'mfussenegger/nvim-lint',
   config = function()
     require('lint').linters_by_ft = {
-      -- c = { 'clangd' },
-      -- cpp = { 'clangd' },
-      -- go = { 'golangci-lint' },
-      -- rust = { 'cargo' },
+      c = { 'clangtidy' },
+      cpp = { 'clangtidy' },
+      -- sudo apt install clang-tidy
+      -- brew install llvm
+      go = { 'golangcilint' },
+      -- go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
       -- verilog = { 'verible' },
       -- systemverilog = { 'verible' },
     }

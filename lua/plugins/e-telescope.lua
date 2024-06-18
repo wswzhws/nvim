@@ -1,5 +1,4 @@
 return {
-
   'nvim-telescope/telescope.nvim',
   tag = '0.1.4',
   dependencies = { 'nvim-lua/plenary.nvim' },
@@ -15,6 +14,7 @@ return {
         mappings = {
           i = {
             ['esc'] = actions.close,
+            ['jk'] = actions.close,
           },
         },
         file_ignore_patterns = {

@@ -4,8 +4,6 @@
 -- mc # 查看当前文件的标签
 -- mn # 下一个标签
 -- mp # 上一个标签
--- md # 删除标签
--- mt # 跳转到标签
 
 return {
   'MattesGroeger/vim-bookmarks',
@@ -17,9 +15,7 @@ return {
     vim.g.bookmark_highlight_lines = 1
 
     require('telescope').load_extension 'vim_bookmarks'
-
     local keymap = vim.keymap
-
     keymap.set(
       'n',
       'ma',
