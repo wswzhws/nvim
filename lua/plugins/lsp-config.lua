@@ -20,4 +20,9 @@ return {
     lspconfig.verible.setup {}
     lspconfig.rust_analyzer.setup {}
   end,
+
+  -- rust tools
+  'mrcjkb/rustaceanvim',
+  version = '^4', -- Recommended
+  lazy = false,
 }
