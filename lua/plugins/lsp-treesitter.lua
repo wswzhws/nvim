@@ -20,6 +20,8 @@ return {
           'cuda',
           'go',
           'verilog',
+          'markdown',
+          'markdown_inline',
         },
 
         sync_install = false,

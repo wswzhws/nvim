@@ -46,12 +46,7 @@ return {
       end,
     })
 
-    vim.keymap.set(
-      'n',
-      '<space>k',
-      '<cmd>Lspsaga hover_doc<cr>',
-      { silent = true }
-    )
+    vim.keymap.set('n', 'gh', '<cmd>Lspsaga hover_doc<cr>', { silent = true })
 
     -- error lens
     vim.fn.sign_define {
