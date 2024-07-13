@@ -24,6 +24,7 @@ return {
         'clangd',
         'gopls',
         'verible',
+        'codelldb',
       },
     }
   end,
