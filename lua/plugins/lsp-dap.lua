@@ -9,12 +9,12 @@ return {
   config = function()
     local keymap = vim.keymap
 
-    keymap.set('n', '<leader>dc', '<cmd>DapContinue<cr>')
+    keymap.set('n', '<leader>do', '<cmd>DapContinue<cr>')
     keymap.set('n', '<leader>db', '<cmd>DapToggleBreakpoint<cr>')
-    keymap.set('n', '<leader>dp', '<cmd>DapStepOut<cr>')
-    keymap.set('n', '<leader>di', '<cmd>DapStepInto<cr>')
-    keymap.set('n', '<leader>do', '<cmd>DapStepOver<cr>')
-    keymap.set('n', '<leader>ds', "<cmd>lua require'dapui'.toggle()<cr>")
+    keymap.set('n', '<leader>dc', '<cmd>DapStepOut<cr>')
+    keymap.set('n', '<leader>ds', '<cmd>DapStepInto<cr>')
+    keymap.set('n', '<leader>dn', '<cmd>DapStepOver<cr>')
+    keymap.set('n', '<leader>dp', "<cmd>lua require'dapui'.toggle()<cr>")
 
     local dap_breakpoint_color = {
       breakpoint = {
