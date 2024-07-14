@@ -81,7 +81,7 @@ return {
       type = 'server',
       port = '${port}',
       executable = {
-        command = os.getenv 'HOME' .. '/.local/share/nvim/mason/bin/codelldb',
+        command = 'codelldb',
         args = { '--port', '${port}' },
       },
     }
