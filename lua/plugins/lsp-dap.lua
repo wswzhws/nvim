@@ -128,7 +128,7 @@ return {
             { id = 'watches', size = 0.15 },
             { id = 'breakpoints', size = 0.15 },
           },
-          size = 50,
+          size = 80,
           position = 'left',
         },
         {
