@@ -4,6 +4,7 @@ return {
     'rcarriga/nvim-dap-ui',
     'nvim-neotest/nvim-nio',
     'theHamsta/nvim-dap-virtual-text',
+    'leoluz/nvim-dap-go',
   },
 
   config = function()
@@ -105,6 +106,7 @@ return {
 
     require('dap').configurations.c = require('dap').configurations.cpp
     require('dap').configurations.rust = require('dap').configurations.cpp
+    require('dap-go').setup()
 
     require('dapui').setup {
       icons = { expanded = '', collapsed = '', current_frame = '' },

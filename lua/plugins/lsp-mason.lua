@@ -25,6 +25,7 @@ return {
         'gopls',
         'verible',
         'codelldb',
+        'delve',
       },
     }
   end,
