@@ -1,26 +1,92 @@
 return {
   'mfussenegger/nvim-dap',
-  'rcarriga/nvim-dap-ui',
   dependencies = {
-    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
     'nvim-neotest/nvim-nio',
+    'theHamsta/nvim-dap-virtual-text',
   },
-  'nvim-neotest/nvim-nio',
-  'theHamsta/nvim-dap-virtual-text',
 
   config = function()
-    local dap, dapui = require 'dap', require 'dapui'
+    local keymap = vim.keymap
 
-    dap.adapters.codelldb = {
+    keymap.set('n', '<leader>dc', '<cmd>DapContinue<cr>')
+    keymap.set('n', '<leader>db', '<cmd>DapToggleBreakpoint<cr>')
+    keymap.set('n', '<leader>dp', '<cmd>DapStepOut<cr>')
+    keymap.set('n', '<leader>di', '<cmd>DapStepInto<cr>')
+    keymap.set('n', '<leader>do', '<cmd>DapStepOver<cr>')
+    keymap.set('n', '<leader>ds', "<cmd>lua require'dapui'.toggle()<cr>")
+
+    local dap_breakpoint_color = {
+      breakpoint = {
+        ctermbg = 0,
+        fg = '#993939',
+        bg = '#31353f',
+      },
+      logpoing = {
+        ctermbg = 0,
+        fg = '#61afef',
+        bg = '#31353f',
+      },
+      stopped = {
+        ctermbg = 0,
+        fg = '#98c379',
+        bg = '#31353f',
+      },
+    }
+
+    vim.api.nvim_set_hl(0, 'DapBreakpoint', dap_breakpoint_color.breakpoint)
+    vim.api.nvim_set_hl(0, 'DapLogPoint', dap_breakpoint_color.logpoing)
+    vim.api.nvim_set_hl(0, 'DapStopped', dap_breakpoint_color.stopped)
+
+    local dap_breakpoint = {
+      error = {
+        text = '',
+        texthl = 'DapBreakpoint',
+        linehl = 'DapBreakpoint',
+        numhl = 'DapBreakpoint',
+      },
+      condition = {
+        text = '',
+        texthl = 'DapBreakpoint',
+        linehl = 'DapBreakpoint',
+        numhl = 'DapBreakpoint',
+      },
+      rejected = {
+        text = '',
+        texthl = 'DapBreakpint',
+        linehl = 'DapBreakpoint',
+        numhl = 'DapBreakpoint',
+      },
+      logpoint = {
+        text = '',
+        texthl = 'DapLogPoint',
+        linehl = 'DapLogPoint',
+        numhl = 'DapLogPoint',
+      },
+      stopped = {
+        text = '',
+        texthl = 'DapStopped',
+        linehl = 'DapStopped',
+        numhl = 'DapStopped',
+      },
+    }
+
+    vim.fn.sign_define('DapBreakpoint', dap_breakpoint.error)
+    vim.fn.sign_define('DapBreakpointCondition', dap_breakpoint.condition)
+    vim.fn.sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
+    vim.fn.sign_define('DapLogPoint', dap_breakpoint.logpoint)
+    vim.fn.sign_define('DapStopped', dap_breakpoint.stopped)
+
+    require('dap').adapters.codelldb = {
       type = 'server',
       port = '${port}',
       executable = {
-        command = '$HOME/.local/share/nvim/mason/bin/codelldb',
+        command = os.getenv 'HOME' .. '/.local/share/nvim/mason/bin/codelldb',
         args = { '--port', '${port}' },
       },
     }
 
-    dap.configurations.cpp = {
+    require('dap').configurations.cpp = {
       {
         name = 'Launch file',
         type = 'codelldb',
@@ -37,8 +103,68 @@ return {
       },
     }
 
-    dap.configurations.c = dap.configurations.cpp
-    dap.configurations.rust = dap.configurations.cpp
+    require('dap').configurations.c = require('dap').configurations.cpp
+    require('dap').configurations.rust = require('dap').configurations.cpp
+
+    require('dapui').setup {
+      icons = { expanded = '', collapsed = '', current_frame = '' },
+      mappings = {
+        -- Use a table to apply multiple mappings
+        expand = { '<CR>', '<2-LeftMouse>' },
+        open = 'o',
+        remove = 'd',
+        edit = 'e',
+        repl = 'r',
+        toggle = 't',
+      },
+      layouts = {
+        {
+          elements = {
+            {
+              id = 'scopes',
+              size = 0.35,
+            },
+            { id = 'stacks', size = 0.35 },
+            { id = 'watches', size = 0.15 },
+            { id = 'breakpoints', size = 0.15 },
+          },
+          size = 50,
+          position = 'left',
+        },
+        {
+          elements = {
+            'repl',
+          },
+          size = 18,
+          position = 'bottom',
+        },
+      },
+
+      controls = { enabled = false },
+      floating = {
+        max_height = nil, -- These can be integers or a float between 0 and 1.
+        max_width = nil, -- Floats will be treated as percentage of your screen.
+        border = 'single', -- Border style. Can be "single", "double" or "rounded"
+        mappings = {
+          close = { 'q', '<Esc>' },
+        },
+      },
+      windows = { indent = 1 },
+    }
+
+    local dap, dapui = require 'dap', require 'dapui'
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+    end
 
     require('nvim-dap-virtual-text').setup {
       enabled = true,
