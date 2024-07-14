@@ -11,3 +11,8 @@ keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
 keymap.set('i', 'jk', '<esc>', { noremap = true })
 
 keymap.set('n', '<C-q>', '<cmd>wq<cr>')
+
+keymap.set('n', 'H', '<C-w>h')
+keymap.set('n', 'J', '<C-w>j')
+keymap.set('n', 'K', '<C-w>k')
+keymap.set('n', 'L', '<C-w>l')
