@@ -26,6 +26,7 @@ return {
           '*-lock.yaml',
           'node_modules',
           '%.lock',
+          'target/*',
         },
         dynamic_preview_title = true,
         path_display = { 'smart' },
