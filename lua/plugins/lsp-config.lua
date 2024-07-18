@@ -1,6 +1,10 @@
 return {
   'neovim/nvim-lspconfig',
-  'slint-ui/vim-slint',
+  dependencies = {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    lazy = false,
+  },
   config = function()
     local lspconfig = require 'lspconfig'
 
@@ -18,11 +22,5 @@ return {
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
     lspconfig.verible.setup {}
-    lspconfig.rust_analyzer.setup {}
   end,
-
-  -- rust tools
-  'mrcjkb/rustaceanvim',
-  version = '^4', -- Recommended
-  lazy = false,
 }
