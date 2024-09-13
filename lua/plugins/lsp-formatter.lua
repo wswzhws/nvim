@@ -15,7 +15,7 @@ return {
       },
 
       format_on_save = {
-        pattern = '*.lua,*.v,*.sv,*.c,*.cpp,*.go,*.h,*.hpp',
+        pattern = '*.lua,*.v,*.sv,*.c,*.cpp,*.go,*.h,*.hpp, *.py',
         timeout_ms = 500,
         async = false,
         lsp_fallback = true,
