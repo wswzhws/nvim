@@ -14,8 +14,8 @@ opt.sidescrolloff = 5
 opt.hlsearch = true
 -- 增量搜索
 opt.incsearch = true
--- 在所有模式下启用鼠标支持
-opt.mouse:append 'a'
+-- 鼠标支持关闭
+opt.mouse = ''
 -- 使用系统剪贴板进行复制/粘贴
 opt.clipboard:append 'unnamedplus'
 -- 设置制表符的空格数
@@ -46,3 +46,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+-- 设置普通模式下光标为竖线
+vim.cmd [[let &t_SI = "\e[6 q"]]
+-- 设置插入模式下光标为下划线
+vim.cmd [[let &t_EI = "\e[4 q"]]
+-- 设置可视模式下光标为方块
+vim.cmd [[let &t_SR = "\e[2 q"]]
