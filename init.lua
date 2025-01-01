@@ -16,3 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require 'base'
 require 'keymap'
 require('lazy').setup 'plugins'
+
+if vim.lsp.inlay_hint then
+  vim.lsp.inlay_hint.enable(true, { 0 })
+end
