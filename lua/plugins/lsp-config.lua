@@ -22,5 +22,6 @@ return {
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
     lspconfig.verible.setup {}
+    lspconfig.pyright.setup {}
   end,
 }

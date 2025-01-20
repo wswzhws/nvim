@@ -26,6 +26,7 @@ return {
         'verible',
         'codelldb',
         'delve',
+        'pyright',
       },
     }
   end,
