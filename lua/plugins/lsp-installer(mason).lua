@@ -18,15 +18,17 @@ return {
     require('mason-lspconfig').setup {}
     require('mason-tool-installer').setup {
       ensure_installed = {
-        'stylua',
-        'lua-language-server',
-        'rust-analyzer',
-        'clangd',
-        'gopls',
-        'verible',
-        'codelldb',
-        'delve',
-        'pyright',
+        'lua-language-server', -- lua lsp
+        'rust-analyzer', -- rust lsp
+        'clangd', -- c/c++ lsp
+        'gopls', -- go lsp
+        'pyright', -- python lsp
+
+        'stylua', -- lua formatter
+        'verible', -- verilog/systemverilog lsp, formatter, and linter
+
+        'codelldb', -- c/c++/rust debugger
+        'delve', -- go debugger
       },
     }
   end,

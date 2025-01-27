@@ -1,14 +1,13 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'mrcjkb/rustaceanvim',
+    'mrcjkb/rustaceanvim', -- rust setup here
     version = '^4', -- Recommended
     lazy = false,
   },
   config = function()
     local lspconfig = require 'lspconfig'
 
-    -- lua
     lspconfig.lua_ls.setup {
       settings = {
         Lua = {
@@ -21,7 +20,6 @@ return {
 
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
-    lspconfig.verible.setup {}
     lspconfig.pyright.setup {}
   end,
 }

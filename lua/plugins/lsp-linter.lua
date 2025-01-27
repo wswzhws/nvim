@@ -3,14 +3,7 @@ return {
   'mfussenegger/nvim-lint',
   config = function()
     require('lint').linters_by_ft = {
-      c = { 'clangtidy' },
-      cpp = { 'clangtidy' },
-      -- sudo apt install clang-tidy
-      -- brew install llvm
-      go = { 'golangcilint' },
-      -- go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-      verilog = { 'verible' },
-      systemverilog = { 'verible' },
+      -- add linters here
     }
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
       callback = function()
