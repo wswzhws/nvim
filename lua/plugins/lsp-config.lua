@@ -4,9 +4,12 @@ return {
     'mrcjkb/rustaceanvim', -- rust setup here
     version = '^4', -- Recommended
     lazy = false,
+    'saecki/crates.nvim',
+    tag = 'stable',
   },
   config = function()
     local lspconfig = require 'lspconfig'
+    local lspcrates = require 'crates'
 
     lspconfig.lua_ls.setup {
       settings = {
@@ -21,5 +24,6 @@ return {
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
     lspconfig.pyright.setup {}
+    lspcrates.setup()
   end,
 }

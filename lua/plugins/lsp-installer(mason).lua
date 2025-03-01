@@ -22,7 +22,7 @@ return {
         'rust-analyzer', -- rust lsp
         'clangd', -- c/c++ lsp
         'gopls', -- go lsp
-        'pyright', -- python lsp
+        'pyright',
 
         'stylua', -- lua formatter
         'verible', -- verilog/systemverilog lsp, formatter, and linter
