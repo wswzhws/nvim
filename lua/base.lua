@@ -52,3 +52,19 @@ vim.cmd [[let &t_SI = "\e[6 q"]]
 vim.cmd [[let &t_EI = "\e[4 q"]]
 -- 设置可视模式下光标为方块
 vim.cmd [[let &t_SR = "\e[2 q"]]
+
+-- 设置从系统剪贴板复制粘贴
+if vim.fn.has 'wsl' == 1 then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
