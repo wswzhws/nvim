@@ -24,6 +24,7 @@ return {
     lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
     lspconfig.pyright.setup {}
+    lspconfig.cmake.setup {}
     lspcrates.setup()
   end,
 }

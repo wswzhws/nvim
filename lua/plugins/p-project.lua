@@ -5,6 +5,7 @@ return {
     projects = { -- define project roots
       '~/.config/*',
       '~/Documents/CodeBox/*',
+      '~/Documents/CodeBox/*_box/*',
     },
     last_session_on_startup = false,
   },
