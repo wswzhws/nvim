@@ -23,7 +23,7 @@ return {
         'clangd', -- c/c++ lsp
         'gopls', -- go lsp
         'pyright', -- python lsp
-        'cmake', -- cmake language server
+        'neocmake', -- cmake language server
 
         'stylua', -- lua formatter
         'verible', -- verilog/systemverilog lsp, formatter, and linter
