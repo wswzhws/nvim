@@ -22,9 +22,13 @@ return {
     }
 
     lspconfig.clangd.setup {}
+    lspconfig.cmake.setup {}
+
     lspconfig.gopls.setup {}
     lspconfig.pyright.setup {}
-    lspconfig.cmake.setup {}
+
+    lspconfig.verible.setup {}
+
     lspcrates.setup()
   end,
 }
