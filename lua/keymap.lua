@@ -10,7 +10,8 @@ keymap.set('n', 'k', [[v:count?'k':'gk']], { noremap = true, expr = true })
 keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
 keymap.set('i', 'jk', '<esc>', { noremap = true })
 
-keymap.set('n', '<C-q>', '<cmd>wq<cr>')
+keymap.set('n', '<C-a>', '<cmd>q!<cr>')
+keymap.set('n', '<leader>q', '<cmd>wq<cr>')
 
 keymap.set('n', 'H', '<C-w>h')
 keymap.set('n', 'J', '<C-w>j')
