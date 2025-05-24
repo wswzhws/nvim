@@ -48,30 +48,26 @@ return {
     vim.keymap.set('n', 'gh', '<cmd>Lspsaga hover_doc<cr>', { silent = true })
 
     -- error lens
-    vim.fn.sign_define {
-      {
-        name = 'DiagnosticSignError',
-        text = '',
-        texthl = 'DiagnosticSignError',
-        linehl = 'ErrorLine',
-      },
-      {
-        name = 'DiagnosticSignWarn',
-        text = '',
-        texthl = 'DiagnosticSignWarn',
-        linehl = 'WarningLine',
-      },
-      {
-        name = 'DiagnosticSignInfo',
-        text = '',
-        texthl = 'DiagnosticSignInfo',
-        linehl = 'InfoLine',
-      },
-      {
-        name = 'DiagnosticSignHint',
-        text = '',
-        texthl = 'DiagnosticSignHint',
-        linehl = 'HintLine',
+    vim.diagnostic.config {
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = ' ',
+          [vim.diagnostic.severity.WARN] = ' ',
+          [vim.diagnostic.severity.INFO] = '󰋼 ',
+          [vim.diagnostic.severity.HINT] = '󰌵 ',
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = '',
+          [vim.diagnostic.severity.WARN] = '',
+          [vim.diagnostic.severity.HINT] = '',
+          [vim.diagnostic.severity.INFO] = '',
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = 'ErrorLine',
+          [vim.diagnostic.severity.WARN] = 'WarningLine',
+          [vim.diagnostic.severity.HINT] = 'HintLine',
+          [vim.diagnostic.severity.INFO] = 'InfoLine',
+        },
       },
     }
   end,

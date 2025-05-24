@@ -1,12 +1,17 @@
 local PYTHON_TABLE = {}
 
 PYTHON_TABLE.lsp = function()
-  local lspconfig = require 'lspconfig'
-  lspconfig.pyright.setup {}
+  vim.lsp.enable 'pyright'
 end
 
 PYTHON_TABLE.installed = {
   'pyright',
+}
+
+PYTHON_TABLE.treesitter = {
+  'python',
+  'json',
+  'yaml',
 }
 
 return PYTHON_TABLE

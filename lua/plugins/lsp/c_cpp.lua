@@ -1,29 +1,24 @@
 local CPP_TABLE = {}
 
 CPP_TABLE.lsp = function()
-  local lspconfig = require 'lspconfig'
-
-  local configs = require 'lspconfig/configs'
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  configs.neocmake = {
-    default_config = {
-      single_file_support = true, -- suggested
-      init_options = {
-        format = { enable = true },
-        lint = { enable = true },
-      },
+  vim.filetype.add {
+    pattern = {
+      ['.*%.bazelrc'] = 'bazelrc',
+      ['bazelrc'] = 'bazelrc',
+      ['%.bazelrc'] = 'bazelrc',
     },
   }
 
-  lspconfig.neocmake.setup {
+  vim.lsp.config('neocmake', {
     capabilities = capabilities,
-  }
+  })
 
-  lspconfig.clangd.setup {}
-  lspconfig.bzl.setup {}
-  lspconfig.bazelrc_lsp.setup {}
+  vim.lsp.enable 'clangd'
+  vim.lsp.enable 'bzl'
+  vim.lsp.enable 'bazelrc-lsp'
 end
 
 CPP_TABLE.installed = {
@@ -32,6 +27,12 @@ CPP_TABLE.installed = {
   'neocmake',
   'bzl',
   'bazelrc-lsp',
+}
+
+CPP_TABLE.treesitter = {
+  'c',
+  'cpp',
+  'cuda',
 }
 
 return CPP_TABLE

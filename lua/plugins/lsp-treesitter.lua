@@ -8,20 +8,22 @@ return {
       'axelvc/template-string.nvim',
     },
     config = function()
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = {
-          'lua',
-          'vim',
+      local configTable = vim.tbl_extend(
+        'force',
+        {
           'rust',
-          'python',
-          'c',
-          'cpp',
-          'cuda',
-          'go',
-          'verilog',
           'markdown',
           'markdown_inline',
         },
+        require('plugins.lsp.c_cpp').treesitter,
+        require('plugins.lsp.python').treesitter,
+        require('plugins.lsp.lua').treesitter,
+        require('plugins.lsp.go').treesitter,
+        require('plugins.lsp.verilog').treesitter
+      )
+
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = configTable,
 
         sync_install = false,
         auto_install = true,

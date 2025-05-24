@@ -1,12 +1,15 @@
 local VERILOG_TABLE = {}
 
 VERILOG_TABLE.lsp = function()
-  local lspconfig = require 'lspconfig'
-  lspconfig.verible.setup {}
+  vim.lsp.enable 'verible'
 end
 
 VERILOG_TABLE.installed = {
   'verible',
+}
+
+VERILOG_TABLE.treesitter = {
+  'verilog',
 }
 
 return VERILOG_TABLE
