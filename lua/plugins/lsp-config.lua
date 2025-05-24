@@ -11,24 +11,30 @@ return {
   },
 
   {
-    'williamboman/mason.nvim',
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-    },
-    config = function()
-      require('mason').setup {
-        ui = {
-          icons = {
-            package_installed = '✓',
-            package_pending = '➜',
-            package_uninstalled = '✗',
-          },
+    'mason-org/mason.nvim',
+    opts = {
+      ui = {
+        icons = {
+          package_installed = '✓',
+          package_pending = '➜',
+          package_uninstalled = '✗',
         },
-      }
+      },
+    },
+  },
 
-      require('mason-lspconfig').setup {}
+  {
+    'mason-org/mason-lspconfig.nvim',
+    opts = {},
+    dependencies = {
+      { 'mason-org/mason.nvim', opts = {} },
+      'neovim/nvim-lspconfig',
+    },
+  },
 
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    config = function()
       local tools = {}
       vim.list_extend(tools, require('plugins.lsp.lua').installed)
       vim.list_extend(tools, require('plugins.lsp.c_cpp').installed)
