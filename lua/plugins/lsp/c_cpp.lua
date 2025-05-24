@@ -17,7 +17,7 @@ CPP_TABLE.lsp = function()
   })
 
   vim.lsp.enable 'clangd'
-  vim.lsp.enable 'bzl'
+  vim.lsp.enable 'starpls'
   vim.lsp.enable 'bazelrc-lsp'
 end
 
@@ -25,7 +25,7 @@ CPP_TABLE.installed = {
   'codelldb',
   'clangd',
   'neocmake',
-  'bzl',
+  'starpls',
   'bazelrc-lsp',
 }
 
