@@ -39,14 +39,16 @@ return {
       }
 
       require('mason-lspconfig').setup {}
+
+      local tools = {}
+      vim.list_extend(tools, require('plugins.lsp.lua').installed)
+      vim.list_extend(tools, require('plugins.lsp.c_cpp').installed)
+      vim.list_extend(tools, require('plugins.lsp.go').installed)
+      vim.list_extend(tools, require('plugins.lsp.python').installed)
+      vim.list_extend(tools, require('plugins.lsp.verilog').installed)
+      vim.list_extend(tools, require('plugins.lsp.rust').installed)
       require('mason-tool-installer').setup {
-        ensure_installed = {
-          require('plugins.lsp.c_cpp').installed,
-          require('plugins.lsp.lua').installed,
-          require('plugins.lsp.go').installed,
-          require('plugins.lsp.python').installed,
-          require('plugins.lsp.verilog').installed,
-        },
+        ensure_installed = tools,
       }
     end,
   },

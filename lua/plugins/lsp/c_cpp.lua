@@ -22,12 +22,16 @@ CPP_TABLE.lsp = function()
   }
 
   lspconfig.clangd.setup {}
+  lspconfig.bzl.setup {}
+  lspconfig.bazelrc_lsp.setup {}
 end
 
 CPP_TABLE.installed = {
   'codelldb',
   'clangd',
   'neocmake',
+  'bzl',
+  'bazelrc-lsp',
 }
 
 return CPP_TABLE

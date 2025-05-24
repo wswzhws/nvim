@@ -5,4 +5,8 @@ RUST_TABLE.lsp = function()
   lspcrates.setup()
 end
 
+RUST_TABLE.installed = {
+  'rust-analyzer',
+}
+
 return RUST_TABLE
