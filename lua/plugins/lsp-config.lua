@@ -1,50 +1,53 @@
 return {
-  'neovim/nvim-lspconfig',
-  dependencies = {
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('plugins.lsp.lua').lsp()
+      require('plugins.lsp.c_cpp').lsp()
+      require('plugins.lsp.go').lsp()
+      require('plugins.lsp.python').lsp()
+      require('plugins.lsp.verilog').lsp()
+    end,
+  },
+
+  {
     'mrcjkb/rustaceanvim', -- rust setup here
     version = '^4', -- Recommended
     lazy = false,
     'saecki/crates.nvim',
     tag = 'stable',
+    config = function()
+      require('plugins.lsp.rust').lsp()
+    end,
   },
-  config = function()
-    local configs = require 'lspconfig/configs'
-    local lspconfig = require 'lspconfig'
-    local lspcrates = require 'crates'
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-    configs.neocmake = {
-      default_config = {
-        single_file_support = true, -- suggested
-        init_options = {
-          format = { enable = true },
-          lint = { enable = true },
-        },
-      },
-    }
-
-    lspconfig.lua_ls.setup {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' },
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+    },
+    config = function()
+      require('mason').setup {
+        ui = {
+          icons = {
+            package_installed = '✓',
+            package_pending = '➜',
+            package_uninstalled = '✗',
           },
         },
-      },
-    }
+      }
 
-    lspconfig.clangd.setup {}
-    lspconfig.neocmake.setup {
-      capabilities = capabilities,
-    }
-
-    lspconfig.gopls.setup {}
-    lspconfig.pyright.setup {}
-
-    lspconfig.verible.setup {}
-
-    lspcrates.setup()
-  end,
+      require('mason-lspconfig').setup {}
+      require('mason-tool-installer').setup {
+        ensure_installed = {
+          require('plugins.lsp.c_cpp').installed,
+          require('plugins.lsp.lua').installed,
+          require('plugins.lsp.go').installed,
+          require('plugins.lsp.python').installed,
+          require('plugins.lsp.verilog').installed,
+        },
+      }
+    end,
+  },
 }

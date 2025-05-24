@@ -1,4 +1,3 @@
--- 插件用于显示消息和通知
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',

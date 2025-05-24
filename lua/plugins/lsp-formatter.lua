@@ -1,4 +1,3 @@
--- 格式化代码相关配置 --
 return {
   'stevearc/conform.nvim',
   lazy = true,

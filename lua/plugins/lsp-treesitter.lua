@@ -1,4 +1,3 @@
--- 插件用于代码高亮和自动补全
 return {
   {
     'nvim-treesitter/nvim-treesitter',

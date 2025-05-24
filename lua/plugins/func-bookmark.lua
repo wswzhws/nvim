@@ -4,7 +4,6 @@
 -- mc # 查看当前文件的标签
 -- mn # 下一个标签
 -- mp # 上一个标签
-
 return {
   'MattesGroeger/vim-bookmarks',
   dependencies = {

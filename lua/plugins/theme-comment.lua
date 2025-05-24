@@ -1,4 +1,3 @@
--- 增强注释插件 --
 return {
   'numToStr/Comment.nvim',
   dependencies = {

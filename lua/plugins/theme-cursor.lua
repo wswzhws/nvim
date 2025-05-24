@@ -1,4 +1,3 @@
--- 光标配置文件 nvim-cursorline
 return {
   'yamatsum/nvim-cursorline',
   opts = {
