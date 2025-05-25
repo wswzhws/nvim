@@ -27,12 +27,18 @@ CPP_TABLE.installed = {
   'neocmake',
   'starpls',
   'bazelrc-lsp',
+  'buildifier',
 }
 
 CPP_TABLE.treesitter = {
   'c',
   'cpp',
   'cuda',
+  'bzl',
+}
+
+CPP_TABLE.format = {
+  bzl = { 'buildifier' },
 }
 
 return CPP_TABLE
