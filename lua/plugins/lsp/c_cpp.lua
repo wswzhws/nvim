@@ -34,7 +34,6 @@ CPP_TABLE.treesitter = {
   'c',
   'cpp',
   'cuda',
-  'bzl',
 }
 
 CPP_TABLE.format = {
