@@ -18,6 +18,9 @@ return {
       lightbulb = {
         enable = false,
       },
+      outline = {
+        win_width = 40,
+      },
     }
 
     keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>')
