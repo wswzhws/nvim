@@ -56,6 +56,7 @@ return {
       vim.list_extend(tools, require('plugins.lsp.go').installed)
       vim.list_extend(tools, require('plugins.lsp.python').installed)
       vim.list_extend(tools, require('plugins.lsp.verilog').installed)
+      vim.list_extend(tools, { 'tree-sitter-cli' })
       require('mason-tool-installer').setup {
         ensure_installed = tools,
       }

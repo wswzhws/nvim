@@ -1,6 +1,7 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     event = { 'BufReadPre', 'BufNewFile' },
     build = ':TSUpdate',
     dependencies = {
@@ -22,7 +23,7 @@ return {
         require('plugins.lsp.verilog').treesitter
       )
 
-      require('nvim-treesitter').setup {
+      require('nvim-treesitter.config').setup {
         ensure_installed = configTable,
 
         sync_install = false,
