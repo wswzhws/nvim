@@ -1,10 +1,12 @@
+local platform = require 'utils.platform'
+
 return {
   'coffebar/neovim-project',
   opts = {
     projects = { -- define project roots
-      '~/.config/*',
-      '~/Documents/CodeBox/*',
-      '~/Documents/CodeBox/*_box/*',
+      platform.join(platform.home(), '.config', '*'),
+      platform.join(platform.home(), 'Documents', 'CodeBox', '*'),
+      platform.join(platform.home(), 'Documents', 'CodeBox', '*_box', '*'),
     },
     last_session_on_startup = false,
   },

@@ -1,7 +1,15 @@
 local LUA_TABLE = {}
+local platform = require 'utils.platform'
 
 LUA_TABLE.lsp = function()
   vim.lsp.config('lua_ls', {
+    cmd = {
+      'lua-language-server',
+      '--logpath='
+        .. platform.join(vim.fn.stdpath 'cache', 'lua-language-server', 'log'),
+      '--metapath='
+        .. platform.join(vim.fn.stdpath 'cache', 'lua-language-server', 'meta'),
+    },
     on_init = function(client)
       if client.workspace_folders then
         local path = client.workspace_folders[1].name
@@ -40,6 +48,8 @@ LUA_TABLE.lsp = function()
       Lua = {},
     },
   })
+
+  vim.lsp.enable 'lua_ls'
 end
 
 LUA_TABLE.installed = {

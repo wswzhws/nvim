@@ -1,4 +1,5 @@
 local opt = vim.opt
+local platform = require 'utils.platform'
 
 -- 启用标志列
 opt.signcolumn = 'yes'
@@ -16,8 +17,19 @@ opt.hlsearch = true
 opt.incsearch = true
 -- 鼠标支持关闭
 opt.mouse = ''
--- 使用系统剪贴板进行复制/粘贴
-opt.clipboard:append 'unnamedplus'
+-- 使用系统剪贴板进行复制/粘贴。Linux 只在检测到 provider 时启用，避免无剪贴板环境报错。
+local has_linux_clipboard = platform.executable 'wl-copy'
+  or platform.executable 'xclip'
+  or platform.executable 'xsel'
+
+if
+  platform.is_mac
+  or platform.is_windows
+  or platform.is_wsl
+  or has_linux_clipboard
+then
+  opt.clipboard:append 'unnamedplus'
+end
 -- 设置制表符的空格数
 opt.tabstop = 4
 -- 设置缩进的空格数
@@ -46,15 +58,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
--- 设置普通模式下光标为竖线
-vim.cmd [[let &t_SI = "\e[6 q"]]
--- 设置插入模式下光标为下划线
-vim.cmd [[let &t_EI = "\e[4 q"]]
--- 设置可视模式下光标为方块
-vim.cmd [[let &t_SR = "\e[2 q"]]
+if not platform.is_windows then
+  -- 设置普通模式下光标为竖线
+  vim.cmd [[let &t_SI = "\e[6 q"]]
+  -- 设置插入模式下光标为下划线
+  vim.cmd [[let &t_EI = "\e[4 q"]]
+  -- 设置可视模式下光标为方块
+  vim.cmd [[let &t_SR = "\e[2 q"]]
+end
 
 -- 设置从系统剪贴板复制粘贴
-if vim.fn.has 'wsl' == 1 then
+if platform.is_wsl then
   vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {

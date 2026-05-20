@@ -20,7 +20,7 @@ return {
         end
 
         -- default mappings
-        api.config.mappings.default_on_attach(bufnr)
+        api.map.on_attach.default(bufnr)
 
         -- custom mappings
         vim.keymap.set('n', '<c-e>', api.tree.toggle, opts 'Toggle')
@@ -40,7 +40,9 @@ return {
         },
         update_focused_file = {
           enable = true,
-          update_cwd = true,
+          update_root = {
+            enable = true,
+          },
         },
         git = {
           enable = false,

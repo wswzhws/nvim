@@ -13,12 +13,22 @@ return {
     require('conform').setup {
       formatters_by_ft = configTable,
 
-      format_on_save = {
-        pattern = '*.lua, *.bzl, *.bazel',
-        timeout_ms = 500,
-        async = false,
-        lsp_fallback = true,
-      },
+      format_on_save = function(bufnr)
+        local format_on_save_filetypes = {
+          bazel = true,
+          bzl = true,
+          lua = true,
+        }
+
+        if not format_on_save_filetypes[vim.bo[bufnr].filetype] then
+          return
+        end
+
+        return {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
+        }
+      end,
     }
   end,
 }

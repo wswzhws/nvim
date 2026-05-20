@@ -90,7 +90,7 @@ return {
 
     -- snippets
     require('luasnip.loaders.from_vscode').load {
-      paths = { '~/.config/nvim/snippets' },
+      paths = { require('utils.platform').config_path 'snippets' },
     }
   end,
 }

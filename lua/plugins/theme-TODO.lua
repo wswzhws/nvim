@@ -26,7 +26,7 @@ return {
       'n',
       '<leader>t',
       '<cmd>TodoTelescope<cr>',
-      { desc = 'Previous todo comment' }
+      { desc = 'Todo comments' }
     )
 
     require('todo-comments').setup()

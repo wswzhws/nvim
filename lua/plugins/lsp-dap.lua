@@ -54,7 +54,7 @@ return {
       },
       rejected = {
         text = '',
-        texthl = 'DapBreakpint',
+        texthl = 'DapBreakpoint',
         linehl = 'DapBreakpoint',
         numhl = 'DapBreakpoint',
       },
