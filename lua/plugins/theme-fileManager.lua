@@ -7,7 +7,6 @@ return {
       vim.g.loaded_netrwPlugin = 1
 
       local api = require 'nvim-tree.api'
-      vim.keymap.set('n', '<c-e>', api.tree.toggle)
 
       local function my_on_attach(bufnr)
         local function opts(desc)
@@ -57,6 +56,8 @@ return {
           },
         },
       }
+
+      vim.keymap.set('n', '<c-e>', api.tree.toggle)
     end,
   },
 }

@@ -22,7 +22,7 @@ return {
         require('plugins.lsp.verilog').treesitter
       )
 
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter').setup {
         ensure_installed = configTable,
 
         sync_install = false,
